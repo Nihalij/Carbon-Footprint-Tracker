@@ -1,0 +1,33 @@
+Date,Travel_Mode,Travel_km,Travel_CO2,Electricity_Usage,Electricity_CO2,Diet_Type,Diet_CO2,Recycling,Total_CO2
+2025-10-01,Flight,122.0,31.11,Low(0-100 kWh),10,High Meat,7.1,No,48.21
+2025-10-02,Bike,101.0,5.05,High(300+ kWh),40,High Meat,7.1,Yes,46.94
+2025-10-03,Bike,37.0,1.85,Medium(101-300 kWh),25,Vegan,2.89,Yes,26.77
+2025-10-04,Car (Petrol),79.0,7.5,High(300+ kWh),40,Mixed,5.63,No,53.13
+2025-10-05,Bike,58.0,2.9,High(300+ kWh),40,Mixed,5.63,No,48.53
+2025-10-06,Car (Petrol),113.0,10.73,Low(0-100 kWh),10,Vegan,2.89,Yes,21.26
+2025-10-07,Bike,100.0,5.0,Medium(101-300 kWh),25,Vegetarian,3.81,No,33.81
+2025-10-08,Bus,8.0,0.78,Low(0-100 kWh),10,Vegetarian,3.81,No,14.59
+2025-10-09,Bike,37.0,1.85,Low(0-100 kWh),10,High Meat,7.1,Yes,17.05
+2025-10-10,Car (Diesel),106.0,11.66,Medium(101-300 kWh),25,Mixed,5.63,Yes,38.06
+2025-10-11,Car (Petrol),134.0,12.73,High(300+ kWh),40,High Meat,7.1,Yes,53.85
+2025-10-12,Bus,145.0,14.07,High(300+ kWh),40,Vegan,2.89,Yes,51.26
+2025-10-13,Bus,16.0,1.55,Medium(101-300 kWh),25,High Meat,7.1,No,33.65
+2025-10-14,Flight,84.0,21.42,Medium(101-300 kWh),25,Vegan,2.89,Yes,44.38
+2025-10-15,Bus,115.0,11.16,Low(0-100 kWh),10,Mixed,5.63,No,26.79
+2025-10-16,Car (Diesel),32.0,3.52,Low(0-100 kWh),10,Vegan,2.89,No,16.41
+2025-10-17,Flight,73.0,18.62,Low(0-100 kWh),10,Mixed,5.63,Yes,30.82
+2025-10-18,Bike,99.0,4.95,High(300+ kWh),40,Vegan,2.89,Yes,43.06
+2025-10-19,Flight,69.0,17.59,High(300+ kWh),40,High Meat,7.1,Yes,58.22
+2025-10-20,Car (Petrol),122.0,11.59,Medium(101-300 kWh),25,Vegetarian,3.81,No,40.4
+2025-10-21,Bike,21.0,1.05,Medium(101-300 kWh),25,Mixed,5.63,Yes,28.51
+2025-10-22,Bike,16.0,0.8,High(300+ kWh),40,Vegan,2.89,Yes,39.32
+2025-10-23,Car (Diesel),76.0,8.36,Medium(101-300 kWh),25,Mixed,5.63,Yes,35.09
+2025-10-24,Bike,23.0,1.15,Low(0-100 kWh),10,Vegan,2.89,Yes,12.64
+2025-10-25,Flight,126.0,32.13,Medium(101-300 kWh),25,Vegetarian,3.81,No,60.94
+2025-10-26,Flight,133.0,33.91,Medium(101-300 kWh),25,Vegan,2.89,No,61.8
+2025-10-27,Car (Petrol),10.0,0.95,Medium(101-300 kWh),25,High Meat,7.1,No,33.05
+2025-10-28,Car (Petrol),30.0,2.85,High(300+ kWh),40,Vegan,2.89,No,45.74
+2025-10-29,Bike,127.0,6.35,High(300+ kWh),40,Vegan,2.89,No,49.24
+2025-10-30,Bus,76.0,7.37,Medium(101-300 kWh),25,Mixed,5.63,Yes,34.2
+2025-11-20,Bus,12.0,1.16,Medium(101-300 kWh),25,Vegetarian,3.81,No,29.97
+2025-11-20,Bus,3.0,0.29,High(300+ kWh),40,Vegetarian,3.81,No,44.1
