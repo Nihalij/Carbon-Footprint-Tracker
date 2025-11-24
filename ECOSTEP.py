@@ -1,3 +1,4 @@
+#                             ------------ Libraries ---------------
 import tkinter as tk
 from tkinter import ttk, messagebox, PhotoImage
 import numpy as np
@@ -10,7 +11,7 @@ import os
 import subprocess
 
 
-# Emission Factors
+#                           ----------------- Emission Factors -------------
 
 travel_factors = {
     "Car (Petrol)": 0.095,
@@ -24,8 +25,7 @@ electricity_map = {"Low(0-100 kWh)": 10, "Medium(101-300 kWh)": 25, "High(300+ k
 diet_map = {"Vegan": 2.89, "Vegetarian": 3.81, "Mixed": 5.63, "High Meat": 7.1}
 
 
-# Generate Month Data
-
+#                        ------------- Generate Month Data ---------------
 
 def generate_month_data():
     start_date = datetime(2025, 10, 1)
@@ -62,7 +62,7 @@ def generate_month_data():
     messagebox.showinfo("Dataset Saved", "1 Month Sample Data Generated Successfully!")
 
 
-# Manual Entry Add
+#                         ----------- Manual Entry Add ---------------
 
 def calculate():
     mode = travel_mode.get()
@@ -91,8 +91,9 @@ def calculate():
     total_co2 = round(travel_co2 + electricity_co2 + diet_co2, 2)
     if rec == "Yes":
         total_co2 = round(total_co2 * 0.9, 2)
-
-    result_label.config(text=f"Total CO₂: {total_co2} kg/day")
+    
+    advice = give_advice(total_co2)
+    result_label.config(text=f"Total CO₂: {total_co2} kg/day\nAdvice: {advice}")
 
     new_entry = pd.DataFrame({
         "Date": [datetime.now().strftime("%Y-%m-%d")],
@@ -117,17 +118,28 @@ def calculate():
     messagebox.showinfo("Saved", "Your entry was saved successfully!")
 
 def open_data_file():
-    filepath = "carbon_gui_data.csv"   # jaha tumhara data save ho raha hai
+    filepath = "carbon_gui_data.csv"   
     
     if os.path.exists(filepath):
         try:
-            subprocess.Popen(['start', filepath], shell=True)  # Windows ke liye
+            subprocess.Popen(['start', filepath], shell=True)  
         except Exception as e:
             messagebox.showerror("Error", f"File cannot open: {e}")
     else:
         messagebox.showerror("Error", "File not found!")
 
-# Graphs
+#                                -------------- Suggestions --------------
+
+def give_advice(total_co2):
+    if total_co2 > 40 :
+      return "High emissions — try public transport, save energy, or choose plant-based meals."
+    elif 15 < total_co2 <= 30:
+         return "Moderate emissions — reduce travel impact and be energy conscious."
+    else:
+        return "Great job — your footprint is low! Keep it up."
+    
+
+#                                   ----------- Graphs ------------
 
 def show_Line():
     df = pd.read_csv("carbon_gui_data.csv")
@@ -204,29 +216,35 @@ def show_graph():
     else:
         messagebox.showwarning("Warning", "Please select a valid graph")
 
-# GUI Design
+#                           ------------ GUI Design ------------
 
 root = tk.Tk()
 root.title("Carbon Footprint Tracker")
-root.geometry("800x600")
+root.geometry("600x600+50+50")
+root.minsize(500,500)
+root.maxsize(900,900)
 root.config(bg="#a0dbb8")
+icon = Image.open(r"C:\Users\aadis\Downloads\OIP.ico")
+photo = ImageTk.PhotoImage(icon)
+root.wm_iconphoto(False, photo)
 
-# Background Image
-img_path = Image.open(r"C:\Users\aadis\Downloads\WhatsApp Image 2025-11-20 at 09.28.13_55c210f0.jpg")
-img_path = img_path.resize((800, 700))
+#                            ---------- Background Image -------------
+img_path = Image.open(r"C:\Users\aadis\Downloads\WhatsApp Image 2025-11-22 at 23.44.16_5c94eb1d.png.jpg")
+img_path = img_path.resize((2000,900))
 img = ImageTk.PhotoImage(img_path)
 
 bg_img = tk.Label(root, image=img)
-bg_img.place(x=0, y=0, relwidth=1, relheight=1)
+bg_img.place(relwidth=1, relheight=1)
 bg_img.lower()
 
-title = tk.Label(root, text="EcoStep", font=("Verdana", 20),bg ="#1d8f4c",fg="#000000")
+title = tk.Label(root, text="EcoStep", font=("Verdana", 20),bg ="#1d8f4c",fg="#000000",relief="sunken",cursor='hand2')
 title.pack(pady=10)
 
 frame = tk.Frame(root, bg="#f6fcf2")
 frame.pack(pady=5)
 
-# Input Widgets
+#                            ----------- Input Widgets -----------
+
 tk.Label(frame, text="Travel Mode", bg="#f6fcf2").grid(row=0, column=0, pady=5, sticky="w")
 travel_mode = ttk.Combobox(frame, values=list(travel_factors.keys()))
 travel_mode.grid(row=0, column=1)
@@ -251,19 +269,22 @@ tk.Label(frame, text="Graph", bg="#f6fcf2").grid(row=5, column=0, pady=5, sticky
 diff_graphs = ttk.Combobox(frame, values=["Line Graph", "Pie Chart", "Bar Graph", "Heatmap"])
 diff_graphs.grid(row=5, column=1)
 
-# Buttons
+
+#                                 ---------- Buttons -----------
+
 tk.Button(root, text="Generate 1 Month Data", command=generate_month_data,
-          bg="#1d8f4c", fg="white", width=18).pack(pady=10)
+          bg="#1d8f4c", fg="white", width=18,relief="sunken",cursor='hand2').pack(pady=10)
 
 tk.Button(root, text="Add My Entry", command=calculate,
-          bg="#1d8f4c", fg="white", width=18).pack(pady=5)
+          bg="#1d8f4c", fg="white", width=18,relief="sunken",cursor='hand2').pack(pady=5)
 
 tk.Button(root, text="Graphs", command=show_graph,
-          bg="#1d8f4c", fg="white", width=18).pack(pady=10)
-tk.Button(root, text="Open Data File", command=open_data_file, bg="#1d8f4c",fg="white").pack(pady=10)
+          bg="#1d8f4c", fg="white", width=18,relief="sunken",cursor='hand2').pack(pady=10)
+tk.Button(root, text="Open Data File", command=open_data_file, bg="#1d8f4c",fg="white",relief="sunken",cursor='hand2').pack(pady=10)
 
 result_label = tk.Label(root, text="", font=("Arial", 13, "bold"),
                         bg="#eafaf1", fg="#0c6e3e")
 result_label.pack(pady=10)
+
 
 root.mainloop()
